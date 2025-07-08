@@ -1,0 +1,20 @@
+Create database IF NOT exists college_db;
+use college_db;
+Create table if NOT EXISTS students (
+id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100),
+    email VARCHAR(100));
+
+CREATE TABLE IF NOT EXISTS courses (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100),
+    duration VARCHAR(50)
+);
+
+CREATE TABLE IF NOT EXISTS enrollments (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    student_id INT,
+    course_id INT,
+    FOREIGN KEY (student_id) REFERENCES students(id),
+    FOREIGN KEY (course_id) REFERENCES courses(id)
+);
